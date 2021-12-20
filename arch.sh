@@ -41,13 +41,13 @@ if [[ $(lscpu) == *AMD* ]]; then
 elif [[ $(lscpu) == *intel* ]]; then
  sudo pacman -S --needed intel-ucode mesa
 fi
+if [[ $(lspci) == *NVIDIA* ]]; then
+	sudo pacman -S --needed nvidia nvidia-utils
+fi
 
 #Installs evreything for gui
 if [[ $Video == True ]]; then
 	sudo pacman -S --needed xorg-server
-	if [[ $(lspci) == *NVIDIA* ]]; then
-		sudo pacman -S --needed nvidia nvidia-utils
-	fi
 	#Installs basic gui packages
 	sudo pacman -S --needed firefox vlc spotify  gparted
 	#Installs Nemo and extensions
