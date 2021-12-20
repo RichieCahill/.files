@@ -35,6 +35,13 @@ sudo pacman -S --needed base-devel curl wget nano neovim bat
 #Installs File system utilities
 sudo pacman -S --needed ntfs-3g nfs-utils
 
+#Installs yay
+cd ~/ || exit
+git clone https://aur.archlinux.org/yay.git
+cd yay || exit
+makepkg -si
+yay -Syu[]
+
 #Installs microcode Based on cpu
 if [[ $(lscpu) == *AMD* ]]; then
  sudo pacman -S --needed amd-ucode
@@ -65,17 +72,9 @@ if [[ $Video == True ]]; then
 	systemctl enable lightdm
 fi
 
-
 #Installs and enables reflector 
 sudo pacman -S --needed reflector
 sudo systemctl enable reflector.service
-
-#Installs yay
-cd ~/ || exit
-git clone https://aur.archlinux.org/yay.git
-cd yay || exit
-makepkg -si
-yay -Syu
 
 #Installs gaming packages
 if [[ $Gaming == True ]]; then
