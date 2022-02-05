@@ -91,15 +91,13 @@ if [[ $Bluetooth == True ]]; then
 	sudo systemctl enable bluetooth.service
 fi
 
-#Sets up an ansible user
-if [[ $Ansible == True ]]; then
-	sudo groupadd -g 200 ansible
-	sudo useradd -m -u 200 -g ansible -G users -G wheel ansible
-	echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOZry9qcc9nnGZSA/CO1rHJjUl76oW+VSWMdn2TfkxfS Ansible" > /tmp/authorized_keys
-	sudo mkdir /home/ansible/.ssh/
-	sudo mv /tmp/authorized_keys /home/ansible/.ssh/authorized_keys
-	sudo chown ansible:ansible -R /home/ansible/
-fi
+#Sets up zerotier
+yay -S zerotier-one
+sudo systemctl enable  zerotier-one.service --now
+sudo zerotier-cli join 35c192ce9beac38f
+
+#Sets up syncthing
+yay -S syncthing
 
 #Installs zsh
 yay -S --needed zsh oh-my-zsh-git && chsh -s /bin/zsh
