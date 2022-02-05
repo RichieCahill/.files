@@ -5,8 +5,6 @@ while :; do
 				;;
 				-d|--desktop) Video="True" Sweet="True" Gaming="True" 
 				;;
-				-a|--ansible) Ansible="True"
-				;;
 				-g|--gaming) Gaming="True"
 				;;
 				-s|--sweet) Sweet="True"
