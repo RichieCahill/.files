@@ -24,6 +24,8 @@ done
 sudo timedatectl set-timezone America/New_York
 sudo systemctl enable systemd-timesyncd
 
+echo "LANG=en_US.UTF-8" | sudo tee /etc/locale.conf >> /dev/null
+
 #Sets my pacman.conf
 sudo cp ~/.files/pacman.conf /etc/pacman.conf
 
@@ -34,13 +36,15 @@ sudo pacman -S --needed p7zip unrar tar rsync zstd
 sudo pacman -S --needed base-devel curl wget nano neovim bat
 #Installs File system utilities
 sudo pacman -S --needed ntfs-3g nfs-utils
+#Installs Dev tools
+sudo pacman -S cgdb nodejs
 
 #Installs yay
 cd ~/ || exit
 git clone https://aur.archlinux.org/yay.git
 cd yay || exit
 makepkg -si
-yay -Syu[]
+yay -Syu
 
 #Installs microcode Based on cpu
 if [[ $(lscpu) == *AMD* ]]; then
@@ -98,7 +102,7 @@ if [[ $Ansible == True ]]; then
 fi
 
 #Installs zsh
-sudo yay -S --needed zsh oh-my-zsh-git && chsh -s /bin/zsh
+yay -S --needed zsh oh-my-zsh-git && chsh -s /bin/zsh
 
 #Links zshrc and vimrc
 ln -fs ~/.files/vimrc ~/.vimrc
