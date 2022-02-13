@@ -45,4 +45,5 @@ source $ZSH/oh-my-zsh.sh
 	alias gitp='~/.files/git-push.sh'
 	alias Update='~/.files/update.sh'
 
-	alias Rand='echo $(("$1" + $RANDOM % "$2"))'
+#SSH alias
+	alias Jeeves='ssh Jeeves'
