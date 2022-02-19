@@ -1,7 +1,7 @@
 #!/bin/bash
 while :; do
 		case $1 in
-				-l|--laptop) Video="True" Sweet="True" Bluetooth="True"
+				-l|--laptop) Laptop="True" Video="True" Sweet="True" Bluetooth="True"
 				;;
 				-d|--desktop) Video="True" Sweet="True" Gaming="True" 
 				;;
@@ -34,8 +34,6 @@ sudo pacman -S --needed p7zip unrar tar rsync zstd
 sudo pacman -S --needed base-devel curl wget nano neovim bat
 #Installs File system utilities
 sudo pacman -S --needed ntfs-3g nfs-utils
-#Installs Dev tools
-sudo pacman -S cgdb nodejs
 
 #Installs yay
 cd ~/ || exit
@@ -43,6 +41,9 @@ git clone https://aur.archlinux.org/yay.git
 cd yay || exit
 makepkg -si
 yay -Syu
+
+#Installs Dev tools
+yay -S cgdb nodejs go snapd
 
 #Installs microcode Based on cpu
 if [[ $(lscpu) == *AMD* ]]; then
@@ -74,6 +75,11 @@ if [[ $Video == True ]]; then
 	systemctl enable lightdm
 fi
 
+if [[ $Laptop == True ]]; then
+	#Sets up syncthing
+	yay -S syncthing
+fi
+
 #Installs and enables reflector 
 sudo pacman -S --needed reflector
 sudo systemctl enable reflector.service
@@ -94,8 +100,6 @@ yay -S zerotier-one
 sudo systemctl enable  zerotier-one.service --now
 sudo zerotier-cli join 35c192ce9beac38f
 
-#Sets up syncthing
-yay -S syncthing
 
 #Installs zsh
 yay -S --needed zsh oh-my-zsh-git && chsh -s /bin/zsh
