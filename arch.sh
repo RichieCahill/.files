@@ -43,7 +43,10 @@ makepkg -si
 yay -Syu
 
 #Installs Dev tools
-yay -S cgdb nodejs go snapd
+yay -S cgdb nodejs go snapd rustup
+rustup toolchain install stable
+rustup default stable
+rustup component add rust-src clippy rustfmt
 
 #Installs microcode Based on cpu
 if [[ $(lscpu) == *AMD* ]]; then
