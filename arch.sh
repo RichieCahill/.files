@@ -31,7 +31,7 @@ sudo cp ~/.files/pacman.conf /etc/pacman.conf
 #Installs archiving/compression packages
 sudo pacman -S --needed p7zip unrar tar rsync zstd 
 #Installs basic packages
-sudo pacman -S --needed base-devel curl wget nano neovim bat
+sudo pacman -S --needed base-devel curl wget nano neovim bat usbutils
 #Installs File system utilities
 sudo pacman -S --needed ntfs-3g nfs-utils
 
@@ -43,7 +43,7 @@ makepkg -si
 yay -Syu
 
 #Installs Dev tools
-yay -S cgdb nodejs go snapd rustup
+yay -S cgdb nodejs go go-tools rustup python-docutils
 rustup toolchain install stable
 rustup default stable
 rustup component add rust-src clippy rustfmt

@@ -24,6 +24,14 @@ sudo mkdir /home/twright/.ssh/
 echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICKXzPF7Ro70goiM/43unrKLskkjZ2oo1x64sqyJIi2r TYLER" | sudo tee  /home/twright/.ssh/authorized_keys >> /dev/null
 sudo chown twright:twright -R /home/twright/
 
+#Sets up an user and group davidk
+sudo groupadd -g 1105 davidk
+sudo useradd -m -u 1104 -g davidk -G docker -G users -G wheel davidk
+sudo chsh -s /bin/zsh davidk
+sudo mkdir /home/davidk/.ssh/
+echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBgbZQTbJJ+QH2Q7NzeYgVVDF3P/6e5GfSo7IhO9koy4 david_krauthamer@protonmail.com" | sudo tee  /home/davidk/.ssh/authorized_keys >> /dev/null
+sudo chown davidk:davidk -R /home/davidk/
+
 yay -S --needed qemu dhclient openbsd-netcat virt-viewer libvirt dnsmasq dmidecode ebtables virt-install virt-manager bridge-utils
 
 sudo systemctl enable libvirtd --now
