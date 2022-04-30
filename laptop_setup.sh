@@ -29,22 +29,29 @@ sudo apt install firefox vlc gparted
 sudo apt install nemo nemo-fileroller
 #Installs communication packages
 sudo apt install discord telegram-desktop
-# signal-desktop 
+
+# signal-desktop
+# Ofisal instructions
+# wget -O- https://updates.signal.org/desktop/apt/keys.asc | gpg --dearmor > signal-desktop-keyring.gpg
+# cat signal-desktop-keyring.gpg | sudo tee -a /usr/share/keyrings/signal-desktop-keyring.gpg > /dev/null
+# echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/signal-desktop-keyring.gpg] https://updates.signal.org/desktop/apt xenial main' |\
+# sudo tee -a /etc/apt/sources.list.d/signal-xenial.list
+# sudo apt update && sudo apt install signal-desktop
 
 #Sets up syncthing
 sudo apt install syncthing
 systemctl enable syncthing@r2r0m0c0.service --now
 
 #Sets up zerotier
-curl -s 'https://raw.githubusercontent.com/zerotier/ZeroTierOne/master/doc/contact%40zerotier.com.gpg' | gpg --import && \
+curl -s 'https://raw.githubusercontent.com/zerotier/ZeroTierOne/master/doc/contact%40zerotier.com.gpg' | gpg --import
 if z=$(curl -s 'https://install.zerotier.com/' | gpg); then 
 	echo "$z" | sudo bash;
 fi
-sudo systemctl enable  zerotier-one.service --now
 sudo zerotier-cli join 35c192ce9beac38f
 
 #Installs zsh
 sudo apt install zsh && chsh -s /bin/zsh
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 #Links zshrc and vimrc
 ln -fs ~/.files/vimrc ~/.vimrc
