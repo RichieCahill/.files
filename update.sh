@@ -16,7 +16,7 @@ OS=$(cat /etc/os-release)
 #Runs the corect coman based on the OS ID
 case $OS in
 	*ID=arch*)
-		if [[ $(which yay) == /usr/bin/yay ]]; then
+		if which yay ; then
 			#runs yay update
 			yay -Syu --noconfirm
 			yay -Yc
@@ -31,6 +31,10 @@ case $OS in
 	;;
 	*)
 esac
+
+if which snap ; then
+	sudo snap refresh
+fi
 
 #Reboot is flag is presed
 if [[ $Reboot == True ]]; then
