@@ -68,7 +68,7 @@ if [[ $Video == True ]]; then
 	#Installs audio packages
 	sudo pacman -S --needed pulseaudio pulseaudio-alsa pulseaudio-bluetooth pulseaudio-equalizer pavucontrol 
 	#Installs networking packages
-	sudo pacman -S --needed networkmanager-openvpn network-manager-applet
+	sudo pacman -S --needed networkmanager-openvpn network-manager-applet iperf3
 	#installs fonts
 	yay -S --needed adobe-source-code-pro-fonts awesome-terminal-fonts cantarell-fonts gsfonts nerd-fonts-complete noto-fonts-cjk otf-font-awesome ttf-font-awesome ttf-ms-fonts ttf-font-awesome ttf-liberation ttf-ms-fonts ttf-opensans
 	#Installs communication packages

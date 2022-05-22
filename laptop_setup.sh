@@ -11,7 +11,10 @@ sudo apt install base-devel curl wget nano neovim btop snapd
 #Installs File system utilities
 sudo apt install ntfs-3g nfs-common
 
-#Installs File system utilities
+#Installs networking packages
+sudo apt install iperf3
+
+#Installs bluetooth packages
 sudo apt install bluez blueman
 # sudo apt install bluez bluez-utils blueman pulseaudio-bluetooth 
 # sudo systemctl enable bluetooth.service
@@ -22,7 +25,7 @@ sudo apt install cgdb nodejs
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 rustup component add rust-src clippy rustfmt
 #Installs pacages for emulating and compiling riscv64
-sudo apt install qemu qemu-user-static gcc-12-riscv64-linux-gnu g++-12-riscv64-linux-gnu
+sudo apt install qemu qemu-user-static gcc-12-riscv64-linux-gnu g++-12-riscv64-linux-gnu qemu-system-misc
 # setup docker repo and install docker
 sudo apt install ca-certificates curl gnupg lsb-release
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
@@ -35,7 +38,7 @@ sudo apt install nemo nemo-fileroller
 #Installs communication packages
 sudo apt install discord telegram-desktop
 #Installs snap packages
-sudo snap install spotify
+sudo snap install spotifyd
 
 # signal-desktop
 # Ofisal instructions
