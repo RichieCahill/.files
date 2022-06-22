@@ -7,12 +7,12 @@ sudo apt install xfce4 xfce4-goodies
 #Installs archiving/compression packages
 sudo apt install p7zip unrar tar rsync zstd 
 #Installs basic packages
-sudo apt install base-devel curl wget nano neovim btop snapd
+sudo apt install base-devel curl wget nano neovim btop snapd tmux ffmpeg chromium-browser
 #Installs File system utilities
-sudo apt install ntfs-3g nfs-common
+sudo apt install ntfs-3g nfs-common gparted
 
 #Installs networking packages
-sudo apt install iperf3
+sudo apt install iperf3 proxychains nmap
 
 #Installs bluetooth packages
 sudo apt install bluez blueman
@@ -20,7 +20,7 @@ sudo apt install bluez blueman
 # sudo systemctl enable bluetooth.service
 
 #Installs Dev tools
-sudo apt install cgdb nodejs
+sudo apt install cgdb nodejs lstopo hwloc
 #Installs Rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 rustup component add rust-src clippy rustfmt
