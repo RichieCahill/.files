@@ -20,7 +20,7 @@ sudo apt install bluez blueman
 # sudo systemctl enable bluetooth.service
 
 #Installs Dev tools
-sudo apt install cgdb nodejs lstopo hwloc
+sudo apt install cgdb nodejs lstopo hwloc pip
 #Installs Rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 rustup component add rust-src clippy rustfmt
